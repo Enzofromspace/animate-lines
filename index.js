@@ -22,12 +22,12 @@ const sketch = ({ width, height }) => {
 
     for (let i = 0; i < agents.length; i++) {
         const agent = agents[i];
-      for (let j = i + 1; j < agents.length; j++){
+      for (let j = i + 1; j < agents.length; j++){ // start j line on index + 1 to limit calls, save computing power
         const other = agents[j];
 
-        const dist = agent.pos.getDistance(other.pos);
+        const dist = agent.pos.getDistance(other.pos); //helps with lines
 
-        if (dist > 200) continue;
+        if (dist > 200) continue; // limits the amount of lines
 
         context.beginPath();
         context.moveTo(agent.pos.x, agent.pos.y);
@@ -55,7 +55,7 @@ class Vector {
   getDistance(v){
     const dx = this.x - v.x;
     const dy = this.y - v.y;
-    return Math.sqrt(dx * dx + dy * dy);
+    return Math.sqrt(dx * dx + dy * dy); // pythagoras to calc lines between agents
   }
 }
 
