@@ -25,6 +25,10 @@ const sketch = ({ width, height }) => {
       for (let j = i + 1; j < agents.length; j++){
         const other = agents[j];
 
+        const dist = agent.pos.getDistance(other.pos);
+
+        if (dist > 200) continue;
+
         context.beginPath();
         context.moveTo(agent.pos.x, agent.pos.y);
         context.lineTo(other.pos.x, other.pos.y);
